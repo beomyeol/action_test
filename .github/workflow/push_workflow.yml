@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/test.yaml'
+
+jobs:
+  name: test workflow
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get current time
+      id: time
+      run: |
+        echo "{time}={$(date +'%Y-%m-%d_%H-%M-%S')}" >> $GITHUB_ENV
+    - name: Print date
+      run: echo output-${{ env.time }}
