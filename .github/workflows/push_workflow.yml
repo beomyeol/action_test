@@ -14,10 +14,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Get current time
+      - name: Generate pattern
         run: |
           echo "AUTOTRAIN_TIME=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
-      - name: Print date
+          echo "PATTERN=output-$AUTOTRAIN_TIME_${{ github.sha }}" >> $GITHUB_ENV
+      - name: Print pattern
         run: |
-          echo output-$AUTOTRAIN_TIME
-          echo ${{ github.sha }}
+          echo $PATTERN
+          
