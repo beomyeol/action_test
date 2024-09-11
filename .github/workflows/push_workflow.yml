@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+      - test
     paths:
       - 'src/test.yaml'
 
